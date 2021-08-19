@@ -39,5 +39,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.name }}-name
-            path: ${{ github.workspace }}/artifact/**/*
+          name: app
+            path: ${{github.workspace}}/artifact/**/*
