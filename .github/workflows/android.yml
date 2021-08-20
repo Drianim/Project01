@@ -38,10 +38,10 @@ jobs:
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.2.2
         with:
-          appId: '1:964812683747:android:ed398b5f5aa267628b88d6'
-          token: 'AAAA4KNROeM:APA91bHNa-JK7-VXIGQBQlzUQKKufbkUmSibhTDxnf5iNQu6VkbNO4Z-SJGcyiT8P-BzS3GhEfmgK_UbqHl2mUKlL8lB3MwXELpqdskzJxKo33M798m-va_vyAxAtgFbHvGOL6LYDffh'
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          token: ${{ secrets.FIREBASE_TOKEN }}
           groups: testers
-          file: ${{ github.workspace }}
+          file: app\build\outputs\apk\bikeClient\debug\app-bike-client-debug.apk
 
   apk:
     name: Generate APK
@@ -60,4 +60,4 @@ jobs:
         uses: 'actions/upload-artifact@v2'
         with:
           name: my-artifact ${{ matrix.node-version }}
-          path: app\build\outputs\apk\bikeAdmin\debug\app-bike-admin-debug.apk
+          path: app\build\outputs\apk\bikeClient\debug\app-bike-client-debug.apk
