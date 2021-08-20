@@ -42,7 +42,7 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           token: ${{ secrets.FIREBASE_TOKEN }}
           groups: testers
-          file: ${{ github.workspace }}\app\build\outputs\apk\bikeClient\debug\app-bike-client-debug.apk
+          file:  ${{ github.workspace }}/app/build/outputs/apk/bikeClient/debug/app-bike-client-debug.apk
 
   apk:
     name: Generate APK
@@ -61,4 +61,4 @@ jobs:
         uses: 'actions/upload-artifact@v2'
         with:
           name: my-artifact ${{ matrix.node-version }}
-          path: ${{ github.workspace }}\app\build\outputs\apk\bikeClient\debug\app-bike-client-debug.apk
+          path: ${{ github.workspace }}/app/build/outputs/apk/bikeClient/debug/app-bike-client-debug.apk
