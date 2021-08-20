@@ -60,4 +60,4 @@ jobs:
         uses: 'actions/upload-artifact@v2'
         with:
           name: my-artifact ${{ matrix.node-version }}
-          path: ${{ github.workspace }}/artifact/**/*
+          path: app\build\outputs\apk\bikeAdmin\debug\app-bike-admin-debug.apk
