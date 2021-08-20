@@ -39,7 +39,7 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1.2.2
         with:
           appId: '1:964812683747:android:ed398b5f5aa267628b88d6'
-          token: 'AIzaSyCpuKtkIQbOb6X381upWA7dHpihzyiHGqw'
+          token: 'AAAA4KNROeM:APA91bHNa-JK7-VXIGQBQlzUQKKufbkUmSibhTDxnf5iNQu6VkbNO4Z-SJGcyiT8P-BzS3GhEfmgK_UbqHl2mUKlL8lB3MwXELpqdskzJxKo33M798m-va_vyAxAtgFbHvGOL6LYDffh'
           groups: testers
           file: ${{ github.workspace }}
 
