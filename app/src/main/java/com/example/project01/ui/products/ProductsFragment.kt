@@ -14,6 +14,7 @@ import com.example.project01.databinding.FragmentProductsBinding
 import com.example.project01.domain.model.Product
 import com.example.project01.util.PRODUCT_KEY
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.combineTransform
 
 @AndroidEntryPoint
 class ProductsFragment : Fragment() {
@@ -41,11 +42,12 @@ class ProductsFragment : Fragment() {
         observeNavBackStack()
         observeVMEvents()
 
-        viewModel.getProducts()
+        getProducts()
     }
 
     private fun observeVMEvents() {
         viewModel.productData.observe(viewLifecycleOwner) { products ->
+            binding.swipeProducts.isRefreshing = false
             productsAdapter.submitList(products)
         }
 
@@ -62,9 +64,19 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setListeners() {
-        binding.fabAdd.setOnClickListener {
-            findNavController().navigate(R.id.action_productsFragment_to_addProductFragment)
+        with(binding) {
+            fabAdd.setOnClickListener {
+                findNavController().navigate(R.id.action_productsFragment_to_addProductFragment)
+            }
+
+            swipeProducts.setOnRefreshListener {
+                getProducts()
+            }
         }
+    }
+
+    private fun getProducts() {
+        viewModel.getProducts()
     }
 
     private fun observeNavBackStack() {
